@@ -4,6 +4,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -12,17 +14,22 @@ import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.Matchers.greaterThan;
 
 @TestMethodOrder(MethodOrderer.Alphanumeric.class)
-class MatchTest {
+class LeagueTest {
 
     @Test
-    public void Match(){
+    public void addMatchResult(){
 
-        Match m = new Match("Salzburg", "Deutschland", 5, 1);
+        League l = new League();
+        Match m1 = new Match("Salzburg", "Deutschland", 5, 1);
+        Match m2 = new Match("Österreich", "Deutschland", 5, 1);
 
-        assertThat(m.getHomeName(), is("Salzburg"));
-        assertThat(m.getGuestName(), is("Deutschland"));
-        assertThat(m.getHomeGoals(), is(5));
-        assertThat(m.getGuestGoals(), is(1));
+        l.addMatchResult(m1);
+        l.addMatchResult(m2);
+
+        List<Team> t = l.getTable();
+
+        assertThat(t.get(0).getName(), is("Salzburg"));
+        assertThat(t.get(1).getName(), is("Österreich"));
 
     }
 

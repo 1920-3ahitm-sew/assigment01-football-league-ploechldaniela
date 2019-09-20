@@ -39,17 +39,17 @@ public class Team implements Comparable<Team> {
             if (match.getGuestGoals() > match.getHomeGoals()){
                 this.wins = this.wins + 1;
                 this.points = this.points + 3;
-                this.goalsShot = this.goalsShot + match.getHomeGoals();
-                this.goalsReceived = this.goalsReceived + match.getGuestGoals();
+                this.goalsShot = this.goalsShot + match.getGuestGoals();
+                this.goalsReceived = this.goalsReceived + match.getHomeGoals();
             }else if (match.getGuestGoals() == match.getHomeGoals()){
                 this.points = this.points + 1;
                 this.draws = this.draws + 1;
-                this.goalsShot = this.goalsShot + match.getHomeGoals();
-                this.goalsReceived = this.goalsReceived + match.getGuestGoals();
+                this.goalsShot = this.goalsShot + match.getGuestGoals();
+                this.goalsReceived = this.goalsReceived + match.getHomeGoals();
             }else if (match.getGuestGoals() < match.getHomeGoals()){
                 this.defeats = this.defeats + 1;
-                this.goalsShot = this.goalsShot + match.getHomeGoals();
-                this.goalsReceived = this.goalsReceived + match.getGuestGoals();
+                this.goalsShot = this.goalsShot + match.getGuestGoals();
+                this.goalsReceived = this.goalsReceived + match.getHomeGoals();
             }
 
         }
